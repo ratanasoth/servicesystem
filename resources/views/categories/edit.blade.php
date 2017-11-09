@@ -1,4 +1,4 @@
-@extends("layouts.inventory")
+@extends("layouts.management")
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -40,17 +40,6 @@
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" value="{{$category->name}}" id="name" name="name" required>
                                         <input type="hidden" name="id" value="{{$category->id}}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="parent" class="control-label col-sm-3 lb">Parent</label>
-                                    <div class="col-sm-8">
-                                        <select name="parent" id="parent" class="form-control">
-                                            <option value="0">&nbsp;</option>
-                                            @foreach($categories as $cat)
-                                                <option value="{{$cat->id}}" {{$cat->id==$category->parent_id?'selected':''}}>{{$cat->name}}</option>
-                                            @endforeach
-                                        </select>
                                         <p>
                                             <br>
                                             <button class="btn btn-primary btn-flat" type="submit">Save</button>
@@ -58,6 +47,7 @@
                                         </p>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div class="col-sm-6">
 

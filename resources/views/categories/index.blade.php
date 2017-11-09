@@ -1,4 +1,4 @@
-@extends("layouts.inventory")
+@extends("layouts.management")
 @section("content")
     <div class="row">
         <div class="col-lg-12">
@@ -13,7 +13,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Parent</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -28,7 +27,6 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$category->name}}</td>
-                                <td>{{$category->parent_name}}</td>
                                 <td>
                                     <a href="{{url('/category/edit/'.$category->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
                                     <a href="{{url('/category/delete/'.$category->id."?page=".@$_GET["page"])}}" onclick="return confirm('You want to delete?')"

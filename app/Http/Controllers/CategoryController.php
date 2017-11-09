@@ -9,44 +9,26 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            if (Auth::user()==null)
-            {
-                return redirect("/login");
-            }
-            return $next($request);
-        });
+       $this->middleware("auth");
     }
     // index
     public function index(Request $r)
     {
-        $data['categories'] = DB::table("categories as a")
-            ->leftJoin("categories as b", "a.parent_id", "b.id")
-            ->where("a.active", 1)
-            ->where("a.company_id", Auth::user()->company_id)
-            ->orderBy("a.name")
-            ->select("a.*", "b.name as parent_name")
+        $data['categories'] = DB::table("categories")
+            ->where('active',1)
+            ->orderBy('name')
             ->paginate(12);
         return view("categories.index", $data);
     }
     public function create(Request $r)
     {
-
-        $data['categories'] = DB::table("categories")
-            ->where("active", 1)
-            ->where("company_id", Auth::user()->company_id)
-            ->orderBy("name")
-            ->get();
-        return view("categories.create", $data);
+        return view("categories.create");
     }
     public function save(Request $r)
     {
 
         $data = array(
-            "name" => $r->name,
-            "parent_id" => $r->parent,
-            "create_by" => Auth::user()->id,
-            "company_id" => Auth::user()->company_id
+            "name" => $r->name
         );
         $i = DB::table("categories")->insert($data);
         if ($i)
@@ -61,19 +43,13 @@ class CategoryController extends Controller
     }
     public function edit($id)
     {
-        $data['categories'] = DB::table("categories")
-            ->where("active", 1)
-            ->where("company_id", Auth::user()->company_id)
-            ->orderBy("name")
-            ->get();
         $data['category'] = DB::table("categories")->where("id", $id)->first();
         return view("categories.edit", $data);
     }
     public function update(Request $r)
     {
         $data = array(
-            "name" => $r->name,
-            "parent_id" => $r->parent
+            "name" => $r->name
         );
         $i = DB::table("categories")->where("id", $r->id)->update($data);
         if ($i)

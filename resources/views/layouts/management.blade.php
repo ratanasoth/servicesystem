@@ -73,6 +73,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="service">Service</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/category')}}" id="category">Category</a>
+                </li>
                 <li class="nav-item"><strong>People</strong></li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="customer">Customer</a>

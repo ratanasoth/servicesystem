@@ -1,4 +1,4 @@
-@extends("layouts.inventory")
+@extends("layouts.management")
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -38,24 +38,14 @@
                                     <label for="name" class="control-label col-sm-3 lb">Name <span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" value="{{old('name')}}" id="name" name="name" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="parent" class="control-label col-sm-3 lb">Parent</label>
-                                    <div class="col-sm-8">
-                                        <select name="parent" id="parent" class="form-control">
-                                            <option value="0">&nbsp;</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        <p>
+                                         <p>
                                             <br>
                                             <button class="btn btn-primary btn-flat" type="submit">Save</button>
                                             <button class="btn btn-danger btn-flat" type="reset">Cancel</button>
                                         </p>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div class="col-sm-6">
 
@@ -75,7 +65,7 @@
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
             $("#category").addClass("current");
-            $("select").chosen();
+            
         })
     </script>
 
