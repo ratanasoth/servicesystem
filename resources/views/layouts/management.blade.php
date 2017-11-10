@@ -68,7 +68,7 @@
             <ul class="nav nav-pills flex-column" id="siderbar">
                 <li class="nav-item"><strong>Item / Service</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="product">Product</a>
+                    <a class="nav-link" href="{{url('/product')}}" id="product">Product</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="service">Service</a>

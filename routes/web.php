@@ -70,3 +70,11 @@ Route::post("/category/update", "CategoryController@update");
 
 // mgmt
 Route::get("/management" ,"ManagementController@index");
+//product route
+Route::get("/product" ,"ProductController@index");
+Route::get("/product/create", "ProductController@create");
+Route::post("/product/save", "ProductController@save");
+Route::get('/product/detail/{id}', "ProductController@detail");
+Route::get('/product/edit/{id}', "ProductController@edit");
+Route::post("/product/update", "ProductController@update");
+Route::get("/product/delete/{id}", "ProductController@delete");
