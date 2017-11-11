@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <strong>Salesperson List</strong>&nbsp;&nbsp;
-                    <a href="{{url('/customer/create')}}"><i class="fa fa-plus"></i> New</a>
+                    <a href="{{url('/salesperson/create')}}"><i class="fa fa-plus"></i> New</a>
                 </div>
                 <div class="card-block">
                     <table class="tbl">
@@ -19,6 +19,7 @@
                             <th>Position</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Branch</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -39,6 +40,7 @@
                                 <td>{{$sale->position}}</td>
                                 <td>{{$sale->email}}</td>
                                 <td>{{$sale->phone}}</td>
+                                <td>{{$sale->name}}</td>
                                 <td>
                                     <a href="{{url('/salesperson/edit/'.$sale->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
                                     <a href="{{url('/salesperson/delete/'.$sale->id ."?page=".@$_GET["page"])}}" onclick="return confirm('Are you sure want to delete?')"
@@ -60,7 +62,7 @@
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
-            $("#customer").addClass("current");
+            $("#salesperson").addClass("current");
         })
     </script>
 @endsection
