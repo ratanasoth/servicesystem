@@ -95,3 +95,10 @@ Route::get("/customer/edit/{id}", "CustomerController@edit");
 Route::get("/customer/delete/{id}", "CustomerController@delete");
 Route::post("/customer/save", "CustomerController@save");
 Route::post("/customer/update", "CustomerController@update");
+// employee
+Route::get("/salesperson", "SalespersonController@index");
+Route::get("/salesperson/create", "SalespersonController@create");
+Route::get("/salesperson/edit/{id}", "SalespersonController@edit");
+Route::get("/salesperson/delete/{id}", "SalespersonController@delete");
+Route::post("/salesperson/save", "SalespersonController@save");
+Route::post("/salesperson/update", "SalespersonController@update");

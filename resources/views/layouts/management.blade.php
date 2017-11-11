@@ -81,10 +81,10 @@
                     <a class="nav-link" href="{{url('/customer')}}" id="customer">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="salesperson">Salesperson</a>
+                    <a class="nav-link" href="{{url('/salesperson')}}" id="salesperson">Salesperson</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="technician">Technician</a>
+                    <a class="nav-link" href="{{url('/technician')}}" id="technician">Technician</a>
                 </li>
                 <li class="nav-item"><strong>Promotion / Event</strong></li>
                 <li class="nav-item">

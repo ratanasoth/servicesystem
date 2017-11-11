@@ -4,7 +4,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header text-bold">
-                    <strong>Customer List</strong>&nbsp;&nbsp;
+                    <strong>Salesperson List</strong>&nbsp;&nbsp;
                     <a href="{{url('/customer/create')}}"><i class="fa fa-plus"></i> New</a>
                 </div>
                 <div class="card-block">
@@ -15,10 +15,10 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Position</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Address</th>
-                            <th>Company</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -29,19 +29,19 @@
                                 $pagex = 1;
                             $i = 12 * ($pagex - 1) + 1;
                         ?>
-                         @foreach($customers as $customer)
+                         @foreach($salespersons as $sale)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td>{{$customer->first_name}}</td>
-                                <td>{{$customer->last_name}}</td>
-                                <td>{{$customer->gender}}</td>
-                                <td>{{$customer->email}}</td>
-                                <td>{{$customer->phone}}</td>
-                                <td>{{$customer->address}}</td>
-                                <td>{{$customer->company_name}}</td>
+                                <td>{{$sale->first_name}}</td>
+                                <td>{{$sale->last_name}}</td>
+                                <td>{{$sale->gender}}</td>
+                                <td>{{$sale->dob}}</td>
+                                <td>{{$sale->position}}</td>
+                                <td>{{$sale->email}}</td>
+                                <td>{{$sale->phone}}</td>
                                 <td>
-                                    <a href="{{url('/customer/edit/'.$customer->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
-                                    <a href="{{url('/customer/delete/'.$customer->id ."?page=".@$_GET["page"])}}" onclick="return confirm('Are you sure want to delete?')"
+                                    <a href="{{url('/salesperson/edit/'.$sale->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
+                                    <a href="{{url('/salesperson/delete/'.$sale->id ."?page=".@$_GET["page"])}}" onclick="return confirm('Are you sure want to delete?')"
                                        title="Delete"><i class="fa fa-remove text-danger"></i></a>
                                 </td>
                             </tr>
@@ -49,7 +49,7 @@
                         </tbody>
                     </table>
                     <nav>
-                        {{$customers->links()}}
+                        {{$salespersons->links()}}
                     </nav>
                 </div>
             </div>
