@@ -102,6 +102,7 @@ Route::get("/salesperson/edit/{id}", "SalespersonController@edit");
 Route::get("/salesperson/delete/{id}", "SalespersonController@delete");
 Route::post("/salesperson/save", "SalespersonController@save");
 Route::post("/salesperson/update", "SalespersonController@update");
+
 // technician
 Route::get("/technician", "TechnicianController@index");
 Route::get("/technician/create", "TechnicianController@create");
@@ -109,3 +110,30 @@ Route::get("/technician/edit/{id}", "TechnicianController@edit");
 Route::get("/technician/delete/{id}", "TechnicianController@delete");
 Route::post("/technician/save", "TechnicianController@save");
 Route::post("/technician/update", "TechnicianController@update");
+
+
+//News route
+Route::get("/news", "NewsController@index");
+Route::get("/news/create", "NewsController@create");
+Route::post("/news/save", "NewsController@save");
+Route::get("/news/detail/{id}", "NewsController@detail");
+Route::get("/news/edit/{id}", "NewsController@edit");
+Route::post("/news/update", "NewsController@update");
+Route::get("/news/delete/{id}", "NewsController@delete");
+//Event route
+Route::get("/event", "EventController@index");
+Route::get("/event/create", "EventController@create");
+Route::post("/event/save", "EventController@save");
+Route::get("/event/detail/{id}", "EventController@detail");
+Route::get("/event/edit/{id}", "EventController@edit");
+Route::post("/event/update", "EventController@update");
+Route::get("/event/delete/{id}", "EventController@delete");
+//Promotion route
+Route::get("/promotion", "PromotionController@index");
+Route::get("/promotion/create", "PromotionController@create");
+Route::post("/promotion/save", "PromotionController@save");
+Route::get("/promotion/detail/{id}", "PromotionController@detail");
+Route::get("/promotion/edit/{id}", "PromotionController@edit");
+Route::post("/promotion/update", "PromotionController@update");
+Route::get("/promotion/delete/{id}", "PromotionController@delete");
+
