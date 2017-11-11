@@ -100,7 +100,7 @@
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
-            $("#category").addClass("current");
+            $("#product").addClass("current");
             
         })
     </script>

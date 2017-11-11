@@ -89,8 +89,7 @@
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
             $("#service").addClass("current");
-            
-        })
+        });
     </script>
 
 @endsection

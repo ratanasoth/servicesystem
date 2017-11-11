@@ -87,3 +87,11 @@ Route::get('/service/edit/{id}', "ServiceController@edit");
 Route::post("/service/update", "ServiceController@update");
 Route::get("/service/delete/{id}", "ServiceController@delete");
 
+// customer
+Route::get("/customer", "CustomerController@index");
+Route::get("/customer/create", "CustomerController@create");
+Route::get("/customer/detail/{id}", "CustomerController@detail");
+Route::get("/customer/edit/{id}", "CustomerController@edit");
+Route::get("/customer/delete/{id}", "CustomerController@delete");
+Route::post("/customer/save", "CustomerController@save");
+Route::post("/customer/update", "CustomerController@update");

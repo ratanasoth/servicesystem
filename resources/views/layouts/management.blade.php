@@ -78,7 +78,7 @@
                 </li>
                 <li class="nav-item"><strong>People</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="customer">Customer</a>
+                    <a class="nav-link" href="{{url('/customer')}}" id="customer">Customer</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="salesperson">Salesperson</a>
