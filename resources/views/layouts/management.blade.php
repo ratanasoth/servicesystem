@@ -88,13 +88,13 @@
                 </li>
                 <li class="nav-item"><strong>Promotion / Event</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="promotion">Promotion</a>
+                    <a class="nav-link" href="{{url('/promotion')}}" id="promotion">Promotion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="event">Event</a>
+                    <a class="nav-link" href="{{url('/event')}}" id="event">Event</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="news">News</a>
+                    <a class="nav-link" href="{{url('/news')}}" id="news">News</a>
                 </li>
                 <li class="nav-item"><strong>Feedback</strong></li>
                 <li class="nav-item">
