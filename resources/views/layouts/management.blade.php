@@ -71,7 +71,7 @@
                     <a class="nav-link" href="{{url('/product')}}" id="product">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="service">Service</a>
+                    <a class="nav-link" href="{{url('/service')}}" id="service">Service</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/category')}}" id="category">Category</a>

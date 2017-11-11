@@ -57,7 +57,7 @@ class ProductController extends Controller
     // load detail product info
     public function detail($id)
     {
-        $data['product_list'] = $data['product_list'] = DB::table("products")
+        $data['product_list']= DB::table("products")
     					->join("categories","categories.id","=","products.category_id")
     					->where("products.active",1)
     					->where("products.id",$id)
@@ -69,7 +69,7 @@ class ProductController extends Controller
     //This function is for editting page of product
     public function edit($id){
 
-    	$data['product_list'] = $data['product_list'] = DB::table("products")
+    	$data['product_list'] = DB::table("products")
     					->join("categories","categories.id","=","products.category_id")
     					->where("products.active",1)
     					->where("products.id",$id)

@@ -78,3 +78,12 @@ Route::get('/product/detail/{id}', "ProductController@detail");
 Route::get('/product/edit/{id}', "ProductController@edit");
 Route::post("/product/update", "ProductController@update");
 Route::get("/product/delete/{id}", "ProductController@delete");
+//service route
+Route::get("/service" ,"ServiceController@index");
+Route::get("/service/create", "ServiceController@create");
+Route::post("/service/save", "ServiceController@save");
+Route::get('/service/detail/{id}', "ServiceController@detail");
+Route::get('/service/edit/{id}', "ServiceController@edit");
+Route::post("/service/update", "ServiceController@update");
+Route::get("/service/delete/{id}", "ServiceController@delete");
+
