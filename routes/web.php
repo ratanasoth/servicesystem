@@ -102,3 +102,10 @@ Route::get("/salesperson/edit/{id}", "SalespersonController@edit");
 Route::get("/salesperson/delete/{id}", "SalespersonController@delete");
 Route::post("/salesperson/save", "SalespersonController@save");
 Route::post("/salesperson/update", "SalespersonController@update");
+// technician
+Route::get("/technician", "TechnicianController@index");
+Route::get("/technician/create", "TechnicianController@create");
+Route::get("/technician/edit/{id}", "TechnicianController@edit");
+Route::get("/technician/delete/{id}", "TechnicianController@delete");
+Route::post("/technician/save", "TechnicianController@save");
+Route::post("/technician/update", "TechnicianController@update");
