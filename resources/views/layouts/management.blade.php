@@ -112,7 +112,7 @@
                 </li>
                 <li class="nav-item"><strong>Schedule / Calenda</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="schedule">Schedule</a>
+                    <a class="nav-link" href="{{url('/schedule')}}" id="schedule">Schedule</a>
                 </li>
                 <li class="nav-item"><strong>Reports</strong></li>
                 <li class="nav-item">

@@ -4,8 +4,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <strong>Create Task</strong>&nbsp;&nbsp;
-                    <a href="{{url('/task')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
+                    <strong>Edit Schedule</strong>&nbsp;&nbsp;
+                    <a href="{{url('/schedule/create')}}"><i class="fa fa-plus"></i> New</a>
+                    <a href="{{url('/schedule')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
                 <div class="card-block">
                     @if(Session::has('sms'))
@@ -28,38 +29,27 @@
                             </div>
                         </div>
                     @endif
-                    <form action="{{url('/task/save')}}" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure want to save?')">
+                    <form action="{{url('/schedule/update')}}" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure want to change?')">
                         {{csrf_field()}}
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group row">
                                     <label for="title" class="control-label col-sm-4 lb">Title<span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" value="{{old('title')}}" name="title" id="title" required="true">
+                                        <input type="text" class="form-control" value="{{$schedule_list->title}}" name="title" id="title" required="true">
+                                        <input type="hidden" name="id" value="{{$schedule_list->id}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="severity" class="control-label col-sm-4 lb">Severity<span class="text-danger">*</span></label>
+                                    <label for="schedule_date" class="control-label col-sm-4 lb">Schedule Date</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" value="{{old('severity')}}" name="severity" id="severity" required="true">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="deadline" class="control-label col-sm-4 lb">Deadline<span class="text-danger">*</span></label>
-                                    <div class="col-sm-8">
-                                        <input type="date" class="form-control" value="{{old('deadline')}}" name="deadline" id="deadline" required="true">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="handler" class="control-label col-sm-4 lb">Handler</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" value="{{old('handler')}}" name="handler" id="handler">
+                                        <input type="date" class="form-control" value="{{$schedule_list->schedule_date}}" name="schedule_date" id="schedule_date">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="description" class="control-label col-sm-4 lb">Description<span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
-                                        <textarea id="description" name="description" class="form-control" rows="10" required="true">{{old('description')}}</textarea>
+                                        <textarea id="description" name="description" class="form-control" rows="10" required="true">{{$schedule_list->description}}</textarea>
                                          <p>
                                             <br>
                                             <button class="btn btn-primary btn-flat" type="submit">Save</button>
@@ -68,6 +58,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </form>
                         </div>
                     </form>
                 </div>
@@ -82,6 +74,7 @@
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
             $("#task").addClass("current");
-        })
+        });
     </script>
+
 @endsection
