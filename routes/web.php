@@ -136,4 +136,12 @@ Route::get("/promotion/detail/{id}", "PromotionController@detail");
 Route::get("/promotion/edit/{id}", "PromotionController@edit");
 Route::post("/promotion/update", "PromotionController@update");
 Route::get("/promotion/delete/{id}", "PromotionController@delete");
+//Task route
+Route::get("/task", "TaskController@index");
+Route::get("/task/create", "TaskController@create");
+Route::post("/task/save", "TaskController@save");
+Route::get("/task/detail/{id}", "TaskController@detail");
+Route::get("/task/edit/{id}", "TaskController@edit");
+Route::post("/task/update", "TaskController@update");
+Route::get("/task/delete/{id}", "TaskController@delete");
 

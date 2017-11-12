@@ -108,7 +108,7 @@
                 </li>
                 <li class="nav-item"><strong>Task</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="task">Taskk</a>
+                    <a class="nav-link" href="{{url('/task')}}" id="task">Task</a>
                 </li>
                 <li class="nav-item"><strong>Schedule / Calenda</strong></li>
                 <li class="nav-item">
