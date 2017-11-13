@@ -32,7 +32,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/home')}}">Dashboard</a>
             </li>
-           
             <li class="nav-item active">
                 <a class="nav-link" href="{{url('/management')}}">Management  <span class="sr-only">(current)</span></a>
             </li>
@@ -108,7 +107,7 @@
                 </li>
                 <li class="nav-item"><strong>Task</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="task">Taskk</a>
+                    <a class="nav-link" href="#" id="task">Task</a>
                 </li>
                 <li class="nav-item"><strong>Schedule / Calenda</strong></li>
                 <li class="nav-item">
