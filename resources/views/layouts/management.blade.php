@@ -27,7 +27,7 @@
     </button>
     <a class="navbar-brand" href="#">Vdoo</a>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault"></div>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/home')}}">Dashboard</a>
@@ -107,11 +107,15 @@
                 </li>
                 <li class="nav-item"><strong>Task</strong></li>
                 <li class="nav-item">
+
                     <a class="nav-link" href="#" id="task">Task</a>
+
+                    <a class="nav-link" href="{{url('/task')}}" id="task">Task</a>
+
                 </li>
                 <li class="nav-item"><strong>Schedule / Calenda</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="schedule">Schedule</a>
+                    <a class="nav-link" href="{{url('/schedule')}}" id="schedule">Schedule</a>
                 </li>
                 <li class="nav-item"><strong>Reports</strong></li>
                 <li class="nav-item">
