@@ -27,13 +27,14 @@
     </button>
     <a class="navbar-brand" href="#">Vdoo</a>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault"></div>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/home')}}">Dashboard</a>
             </li>
+           
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/management')}}">Management  <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{url('/management')}}">Management <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/setting')}}">Settings</a>
@@ -107,11 +108,7 @@
                 </li>
                 <li class="nav-item"><strong>Task</strong></li>
                 <li class="nav-item">
-
-                    <a class="nav-link" href="#" id="task">Task</a>
-
                     <a class="nav-link" href="{{url('/task')}}" id="task">Task</a>
-
                 </li>
                 <li class="nav-item"><strong>Schedule / Calenda</strong></li>
                 <li class="nav-item">
