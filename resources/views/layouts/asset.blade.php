@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Vdoo MFI</title>
+    <title>Asset Management</title>
     <!-- Styles -->
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -32,18 +32,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/home')}}">Dashboard</a>
             </li>
-           
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/management')}}">Management</a>
+                <a class="nav-link" href="{{url('/management')}}">Management</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/asset')}}">Asset</span></a>
+             <li class="nav-item active">
+                <a class="nav-link" href="{{url('/asset')}}">Asset <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+             <li class="nav-item">
                 <a class="nav-link" href="{{url('/payment')}}">Payment</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/setting')}}">Settings <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/setting')}}">Settings</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Help</a>
@@ -72,18 +71,31 @@
     <div class="row">
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
             <ul class="nav nav-pills flex-column" id="siderbar">
+                <li class="nav-item"><strong>Asset</strong></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Create Asset</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Asset List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Check In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Check Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Asset Lost</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Asset Scrap</a>
+                </li>
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/company')}}" id="company">Company</a>
+                    <a href="#" class="nav-link">Asset Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/branch')}}" id="branch">Branch</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/user')}}" id="user">User Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/role')}}" id="role">User Role</a>
+                    <a href="#" class="nav-link">Warehouse</a>
                 </li>
             </ul>
         </nav>

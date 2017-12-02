@@ -32,9 +32,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/home')}}">Dashboard</a>
             </li>
-           
             <li class="nav-item active">
                 <a class="nav-link" href="{{url('/management')}}">Management <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/asset')}}">Asset</span></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{url('/payment')}}">Payment</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/setting')}}">Settings</a>

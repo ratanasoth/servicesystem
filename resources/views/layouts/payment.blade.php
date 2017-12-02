@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Vdoo MFI</title>
+    <title>Payment Management</title>
     <!-- Styles -->
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -32,18 +32,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/home')}}">Dashboard</a>
             </li>
-           
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/management')}}">Management</a>
+                <a class="nav-link" href="{{url('/management')}}">Management</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/asset')}}">Asset</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('/payment')}}">Payment</a>
+             <li class="nav-item active">
+                <a class="nav-link" href="{{url('/payment')}}">Payment <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/setting')}}">Settings <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/setting')}}">Settings</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Help</a>
@@ -72,18 +71,35 @@
     <div class="row">
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
             <ul class="nav nav-pills flex-column" id="siderbar">
+                <li class="nav-item"><strong>Customer Invoice</strong></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Create Invoice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="service">Invoice List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="service">Due Invoice</a>
+                </li>
+                 <li class="nav-item"><strong>Reports</strong></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="product">Income</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="service">Expense</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="service">Due Payment</a>
+                </li>
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/company')}}" id="company">Company</a>
+                    <a class="nav-link" href="#" id="product">Payment Term</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/branch')}}" id="branch">Branch</a>
+                    <a class="nav-link" href="#" id="service">Currency</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/user')}}" id="user">User Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/role')}}" id="role">User Role</a>
+                    <a class="nav-link" href="#" id="service">Tax</a>
                 </li>
             </ul>
         </nav>

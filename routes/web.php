@@ -152,4 +152,18 @@ Route::get("/schedule/detail/{id}", "ScheduleController@detail");
 Route::get("/schedule/edit/{id}", "ScheduleController@edit");
 Route::post("/schedule/update", "ScheduleController@update");
 Route::get("/schedule/delete/{id}", "ScheduleController@delete");
+// asset
+Route::get('/asset', "AssetController@index");
+Route::get('/asset/create', "AssetController@create");
+Route::get('/asset/edit/{id}', "AssetController@edit");
+Route::get('/asset/delete/{id}', "AssetController@delete");
+Route::post('/asset/save', "AssetController@save");
+Route::post('/asset/update', "AssetController@update");
+// payment
+Route::get('/payment', "PaymentController@index");
+Route::get('/payment/create', "PaymentController@create");
+Route::get('/payment/edit/{id}', "PaymentController@edit");
+Route::get('/payment/delete/{id}', "PaymentController@delete");
+Route::post('/payment/save', "PaymentController@save");
+Route::post('/payment/update', "PaymentController@update");
 
