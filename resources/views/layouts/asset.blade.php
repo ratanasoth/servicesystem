@@ -92,10 +92,10 @@
                 </li>
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Asset Category</a>
+                    <a href="{{url('/asset-type')}}" class="nav-link" id="menu_asset_type">Asset Type</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Warehouse</a>
+                    <a href="{{url('/warehouse')}}" class="nav-link" id='menu_warehouse'>Warehouse</a>
                 </li>
             </ul>
         </nav>
@@ -105,6 +105,9 @@
     </div>
 </div>
 <!-- Scripts -->
+<script>
+    var burl = "{{url('/')}}";
+</script>
 <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('js/tether.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
