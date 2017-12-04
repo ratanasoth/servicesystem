@@ -73,9 +73,6 @@
             <ul class="nav nav-pills flex-column" id="siderbar">
                 <li class="nav-item"><strong>Asset</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="product">Create Asset</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#" id="product">Asset List</a>
                 </li>
                 <li class="nav-item">
