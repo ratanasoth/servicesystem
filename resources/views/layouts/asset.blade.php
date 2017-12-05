@@ -76,7 +76,7 @@
                     <a class="nav-link" href="#" id="product">Create Asset</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="product">Asset List</a>
+                    <a class="nav-link" href="{{url('/asset')}}" id="asset">Asset List</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="product">Check In</a>
