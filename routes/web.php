@@ -167,3 +167,17 @@ Route::get('/payment/delete/{id}', "PaymentController@delete");
 Route::post('/payment/save', "PaymentController@save");
 Route::post('/payment/update', "PaymentController@update");
 
+// warehouse
+Route::get('/warehouse', "WarehouseController@index");
+Route::get('/warehouse/create', "WarehouseController@create");
+Route::get('/warehouse/edit/{id}', "WarehouseController@edit");
+Route::get('/warehouse/delete/{id}', "WarehouseController@delete");
+Route::post('/warehouse/save', "WarehouseController@save");
+Route::post('/warehouse/update', "WarehouseController@update");
+// asset type
+Route::get('/asset-type', "AssetTypeController@index");
+Route::get('/asset-type/create', "AssetTypeController@create");
+Route::get('/asset-type/edit/{id}', "AssetTypeController@edit");
+Route::get('/asset-type/delete/{id}', "AssetTypeController@delete");
+Route::post('/asset-type/save', "AssetTypeController@save");
+Route::post('/asset-type/update', "AssetTypeController@update");
