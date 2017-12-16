@@ -166,7 +166,15 @@ Route::get('/payment/edit/{id}', "PaymentController@edit");
 Route::get('/payment/delete/{id}', "PaymentController@delete");
 Route::post('/payment/save', "PaymentController@save");
 Route::post('/payment/update', "PaymentController@update");
-
+// asset out
+Route::get('/asset-out', "AssetOutController@index");
+Route::get('/asset-out/create', "AssetOutController@create");
+Route::get('/asset-out/edit/{id}', "AssetOutController@edit");
+Route::get('/asset-out/delete/{id}', "AssetOutController@delete");
+Route::get('/asset-out/detail/{id}', "AssetOutController@detail");
+Route::post('/asset-out/save', "AssetOutController@save");
+Route::post('/asset-out/update', "AssetOutController@update");
+Route::get('/asset-out/checkin/{id}', "AssetOutController@checkin");
 // warehouse
 Route::get('/warehouse', "WarehouseController@index");
 Route::get('/warehouse/create', "WarehouseController@create");

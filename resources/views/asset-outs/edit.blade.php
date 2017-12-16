@@ -4,8 +4,8 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <strong>Create Asset</strong>&nbsp;&nbsp;
-                    <a href="{{url('/asset')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
+                    <strong>Edit Asset Out</strong>&nbsp;&nbsp;
+                    <a href="{{url('/asset-out')}}" class="text-success"><i class="fa fa-arrow-left"></i> Back</a>
 
                 </div>
                 <div class="card-block">
@@ -29,57 +29,56 @@
                             </div>
                         </div>
                     @endif
-                    <form action="{{url('/asset/save')}}" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure want to save?')">
+                    <form action="{{url('/asset-out/update')}}" class="form-horizontal" method="post" onsubmit="return confirm('Are you sure want to save?')">
                         {{csrf_field()}}
+                        <input type="hidden" value="{{$asset_out->id}}" name="id">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label for="name" class="control-label col-sm-3 lb"> Name<span class="text-danger">*</span></label>
+                                    <label for="asset" class="control-label col-sm-3 lb"> Asset<span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" value="{{old('name')}}" name="name" id="name" required>
-                                    </div>
-                                </div>
-                                
-                              
-                                <div class="form-group row">
-                                    <label for="type" class="control-label col-sm-3 lb">Asset Type<span class="text-danger">*</span></label>
-                                    <div class="col-sm-8">
-                                        <select name="type" id="type" class="form-control" required="true">
-                                            <option value="">--Please Select--</option>
-                                            @foreach($asset_types as $asset_type)
-                                                <option value="{{$asset_type->id}}">{{$asset_type->name}}</option>
-                                            @endforeach
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="warehouse" class="control-label col-sm-3 lb">Warehouse<span class="text-danger">*</span></label>
-                                    <div class="col-sm-8">
-                                        <select name="warehouse" id="warehouse" class="form-control" required="true">
-                                            <option value="">--Please Select--</option>
-                                            @foreach($warehouses as $warehouse)
-                                                <option value="{{$warehouse->id}}">{{$warehouse->name}}</option>
-                                            @endforeach
-                                            
+                                        <select name="asset" id="asset" class="form-control">
+                                        @foreach($assets as $asset)
+                                            <option value="{{$asset->id}}" {{$asset_out->asset_id==$asset->id?'selected':''}}>{{$asset->name}}</option>
+                                        @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="onhand" class="control-label col-sm-3 lb">On Hand</label>
+                                    <label for="quantity" class="control-label col-sm-3 lb">Quantity</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control" value="0" name="onhand" id="onhand">
+                                        <input type="number" class="form-control" value="{{$asset_out->quantity}}" name="quantity" id="quantity">
                                     </div>
                                 </div>
-                                
                                 <div class="form-group row">
-                                    <label for="description" class="control-label col-sm-3 lb">Description</label>
+                                    <label for="out_date" class="control-label col-sm-3 lb">Out Date</label>
                                     <div class="col-sm-8">
-                                         <textarea class="form-control" name="description" id="description">{{old('description')}}</textarea>
+                                        <input type="date" class="form-control" name="out_date" id="out_date" value="{{$asset_out->out_date}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="return_date" class="control-label col-sm-3 lb">Return Date</label>
+                                    <div class="col-sm-8">
+                                        <input type="date" class="form-control" name="return_date" id="return_date" value="{{$asset_out->return_date}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="out_by" class="control-label col-sm-3 lb">Check Out By</label>
+                                    <div class="col-sm-8">
+                                        <select name="out_by" id="out_by" class="form-control">
+                                        @foreach($users as $user)
+                                            <option value="{{$user->id}}" {{$asset_out->out_by==$user->id?'selected':''}}>{{$user->name}}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="reason" class="control-label col-sm-3 lb">Reason</label>
+                                    <div class="col-sm-8">
+                                         <textarea class="form-control" name="reason" id="reason">{{$asset_out->reason}}</textarea>
                                          <p>
                                             <br>
-                                            <button class="btn btn-primary btn-flat" type="submit">Save</button>
+                                            <button class="btn btn-primary btn-flat" type="submit">Save Changes</button>
                                             <button class="btn btn-danger btn-flat" type="reset">Cancel</button>
                                         </p>
                                     </div>
@@ -99,7 +98,7 @@
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
-            $("#asset").addClass("current");
+            $("#menu_asset_out").addClass("current");
             
         })
     </script>

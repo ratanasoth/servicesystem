@@ -35,7 +35,7 @@
                                <div class="row">
                                    <div class="col">
                                        <div class="form-group row">
-                                           <label for="name" class="control-label col-sm-4 lb">Username <span class="text-danger">*</span></label>
+                                           <label for="name" class="control-label col-sm-4 lb">Full Name <span class="text-danger">*</span></label>
                                            <div class="col-sm-8">
                                                <input type="text" id="name" name="name" class="form-control" required>
                                            </div>
