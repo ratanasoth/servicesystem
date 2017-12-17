@@ -34,8 +34,15 @@ class CustomerController extends Controller
             "email" => $r->email,
             "phone" => $r->phone,
             "address" => $r->address,
-            "company_name" => $r->company_name
+            "company_name" => $r->company_name,
+            'username' => $r->username,
+            'password' => bcrypt($r->password)
         );
+        if($r->password!=$r->cpassword)
+        {
+            $r->session()->flash('sms1', "Your password and confirm password is not match!");
+            return redirect('/customer/create')->withInput();
+        }
         $i = DB::table("customers")->insert($data);
         if($i)
         {
@@ -57,8 +64,13 @@ class CustomerController extends Controller
              "email" => $r->email,
              "phone" => $r->phone,
              "address" => $r->address,
-             "company_name" => $r->company_name
+             "company_name" => $r->company_name,
+             'username' => $r->username
          );
+         if($r->password!=null)
+         {
+             $data['password'] = bcrypt($r->password);
+         }
          $i = DB::table("customers")->where("id", $r->id)->update($data);
          if($i)
          {

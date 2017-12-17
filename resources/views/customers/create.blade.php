@@ -74,6 +74,27 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label for="username" class="control-label col-sm-3 lb">Username <span class="text-danger">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="username" name="username" class="form-control" value="{{old('username')}}" required>
+                                         
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password" class="control-label col-sm-3 lb">Password <span class="text-danger">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="password" id="password" name="password" class="form-control" required>
+                                         
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="cpassword" class="control-label col-sm-3 lb">Confirm cpassword <span class="text-danger">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="password" id="cpassword" name="cpassword" class="form-control" required>
+                                         
+                                    </div>
+                                </div>
+                                 <div class="form-group row">
                                     <label for="company_name" class="control-label col-sm-3 lb">Company Name</label>
                                     <div class="col-sm-8">
                                         <input type="text" id="company_name" name="company_name" class="form-control" value="{{old('company_name')}}">
