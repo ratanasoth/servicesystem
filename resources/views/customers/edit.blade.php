@@ -75,6 +75,20 @@
                                         <input type="text" class="form-control" value="{{$customer->address}}" name="address" id="address">
                                     </div>
                                 </div>
+                                 <div class="form-group row">
+                                    <label for="username" class="control-label col-sm-3 lb">Username <span class="text-danger">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="username" name="username" class="form-control" value="{{$customer->username}}" required>
+                                         
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password" class="control-label col-sm-3 lb">Password <span class="text-danger">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="password" id="password" name="password" class="form-control" required>
+                                         
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label for="company_name" class="control-label col-sm-3 lb">Company Name</label>
                                     <div class="col-sm-8">
