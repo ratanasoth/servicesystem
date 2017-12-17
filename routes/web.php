@@ -11,9 +11,15 @@
 |
 */
 header('Access-Control-Allow-Headers: X-Requested-With, origin, content-type');
-Route::get('/', function () {
+
+/*Route::get('/', function () {
     return redirect('/login');
 });
+*/
+Route::get('/', "FrontController@index");
+Route::get('/customerlogin', "FrontController@customerlogin");
+Route::get('/stafflogin', "FrontController@stafflogin");
+
 // user route
 Route::get('/user', "UserController@index");
 Route::get('/user/profile', "UserController@load_profile");
