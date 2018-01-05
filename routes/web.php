@@ -12,14 +12,41 @@
 */
 header('Access-Control-Allow-Headers: X-Requested-With, origin, content-type');
 
-/*Route::get('/', function () {
+Route::get('/stafflogin', function () {
     return redirect('/login');
 });
-*/
-Route::get('/', "FrontController@index");
-Route::get('/customerlogin', "FrontController@customerlogin");
-Route::get('/stafflogin', "FrontController@stafflogin");
 
+Route::get('/', "FrontController@index");
+
+// Route::get('/stafflogin', "FrontController@stafflogin");
+// customer section
+Route::get('/customerlogin', "FrontController@customerlogin");
+Route::get('/customer/logout', "FrontController@logout");
+Route::get('/customer/profile/{id}', "FrontCustomerController@profile");
+Route::post('/customer/saveprofile', "FrontCustomerController@save_profile");
+Route::get('/customer/home', "FrontCustomerController@index");
+Route::get('/front/customer', "FrontCustomerController@index");
+Route::post('/front/customer/login', "FrontController@dologin");
+Route::get('/customer/product', "FrontCustomerController@product");
+Route::get('/customer/product/detail/{id}', "FrontCustomerController@product_detail");
+// customer request
+Route::get('/customer/request', "CustomerRequestController@index");
+Route::get('/customer/request/create', "CustomerRequestController@create");
+Route::get('/customer/request/detail/{id}', "CustomerRequestController@detail");
+Route::get('/customer/request/edit/{id}', "CustomerRequestController@edit");
+Route::get('/customer/request/delete/{id}', "CustomerRequestController@delete");
+Route::post('/customer/request/save', "CustomerRequestController@save");
+Route::post('/customer/request/update', "CustomerRequestController@update");
+// customer feedback
+Route::get('/customer/feedback', "CustomerFeedbackController@index");
+Route::get('/customer/feedback/create', "CustomerFeedbackController@create");
+Route::get('/customer/feedback/detail/{id}', "CustomerFeedbackController@detail");
+Route::get('/customer/feedback/delete/{id}', "CustomerFeedbackController@delete");
+Route::post('/customer/feedback/save', "CustomerFeedbackController@save");
+Route::post('/customer/feedback/update', "CustomerFeedbackController@update");
+// customer task
+Route::get('/customer/task', "CustomerTaskController@index");
+Route::get('/customer/task/detail/{id}', "CustomerTaskController@detail");
 // user route
 Route::get('/user', "UserController@index");
 Route::get('/user/profile', "UserController@load_profile");

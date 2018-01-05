@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-
+    <link href="{{asset('css/datepicker.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{{asset("chosen/chosen.css")}}">
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">

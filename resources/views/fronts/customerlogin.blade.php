@@ -7,43 +7,39 @@
           <div class="col-lg-6 mx-auto">
            
                 <div class="card card-container" style="color: #000;">
-                    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-                    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+
+                    <img id="profile-img" class="profile-img-card" src="{{asset('img/logo-vdoo.png')}}" />
                     <p id="profile-name" class="profile-name-card"></p>
 
                      <h3 class="text-uppercase">
                         <strong>CUSTOMER LOGIN</strong>
                       </h3>
                      
-                    <form class="form-signin">
+                    <form action="{{url('/front/customer/login')}}" class="form-signin" method="post">
+                        {{csrf_field()}}
                         <span id="reauth-email" class="reauth-email"></span>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <div id="remember" class="checkbox">
-                            <label>
-                                <input type="checkbox" value="remember-me"> Remember me
-                            </label>
-                        </div>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                        
                         <button class="btn btn-primary btn-xl js-scroll-trigger" type="submit">Sign in</button>
-                    </form><!-- /form -->
+                    </form>
                     <a href="#" class="forgot-password">
                         Forgot the password?
                     </a>
-                </div><!-- /card-container -->
-            
-            
-          </div>
-         
+                    @if(Session::has('sms1'))
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div>
+                            {{session('sms1')}}
+                        </div>
+                    </div>
+                @endif
+                </div>
+          </div>      
         </div>
       </div>
     </header>
-
-
-
-
-
-@endsection
-@section('js')
-
 
 @endsection

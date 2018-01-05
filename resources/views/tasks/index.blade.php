@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header text-bold">
                     <strong>Task List</strong>&nbsp;&nbsp;
-                    <a href="{{url('/task/create')}}"><i class="fa fa-plus"></i>New</a>
+                    <a href="{{url('/task/create')}}"><i class="fa fa-plus"></i> New</a>
                 </div>
                 <div class="card-block">
                     <table class="tbl">
@@ -13,10 +13,10 @@
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>Security</th>
-                            <th>Handler</th>
+                            <th>Severity</th>
+                            <th>Handle Person</th>
                             <th>Deadline</th>
-                            <th>Description</th>
+                            <th>Progression</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -27,25 +27,19 @@
                                 $pagex = 1;
                             $i = 12 * ($pagex - 1) + 1;
                         ?>
-                         @foreach($task_list as $tasks)
-                             <?php
-                                if($tasks->deadline==""){
-                                    $date ="";
-                                }else{
-                                    $date = date("m/d/Y",strtotime($tasks->deadline));
-                                }
-                             ?>
+                         @foreach($tasks as $t)
+
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td>{{$tasks->title}}</td>
-                                <td>{{$tasks->severity}}</td>
-                                <td>{{$tasks->handler}}</td>
-                                <td>{{$date}}</td>
-                                <td>{{$tasks->description}}</td>
+                                <td>{{$t->title}}</td>
+                                <td>{{$t->severity}}</td>
+                                <td>{{$t->first_name}} {{$t->last_name}}</td>
+                                <td>{{$t->deadline}}</td>
+                                <td>{{$t->progression}}%</td>
                                 <td>
-                                    <a href="{{url('/task/detail/'.$tasks->id)}}"><i class="fa fa-folder text-success" title="View Detail"></i></a>&nbsp;&nbsp;
-                                    <a href="{{url('/task/edit/'.$tasks->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
-                                    <a href="{{url('/task/delete/'.$tasks->id ."?page=".@$_GET["page"])}}" onclick="return confirm('Are you sure want to delete?')"
+                                    <a href="{{url('/task/detail/'.$t->id)}}"><i class="fa fa-eye text-primary" title="View Detail"></i></a>&nbsp;&nbsp;
+                                    <a href="{{url('/task/edit/'.$t->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
+                                    <a href="{{url('/task/delete/'.$t->id ."?page=".@$_GET["page"])}}" onclick="return confirm('Are you sure want to delete?')"
                                        title="Delete"><i class="fa fa-remove text-danger"></i></a>
                                 </td>
                             </tr>
@@ -53,7 +47,7 @@
                         </tbody>
                     </table>
                     <nav>
-                        {{$task_list->links()}}
+                        {{$tasks->links()}}
                     </nav>
                 </div>
             </div>
