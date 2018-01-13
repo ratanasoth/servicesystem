@@ -97,4 +97,46 @@ class FrontCustomerController extends Controller
             ->first();
         return view('fronts.customers.product-detail', $data);
     }
+    // customer register
+    public function register()
+    {
+        return view('fronts.register');
+    }
+    public function do_register(Request $r)
+    {
+        $count = DB::table('customers')->where('username', $r->username)->count();
+        if ($count>0)
+        {
+            $r->session()->flash('sms1', 'Username is already used. Please use a different one!');
+            return redirect('/customer/register')->withInput();
+        }
+        else{
+
+            $data = array(
+                'first_name' => $r->first_name,
+                'last_name' => $r->last_name,
+                'phone' => $r->phone,
+                'username' => $r->username,
+                'password' => bcrypt($r->password)
+            );
+            if($r->password!=$r->cpassword)
+            {
+                $r->session()->flash('sms1', 'The password and confirm password is not matched!');
+                return redirect('/customer/register')->withInput();
+            }
+            else{
+                $i = DB::table('customers')->insert($data);
+                if ($i)
+                {
+                    return redirect('/customerlogin');
+                }
+                else{
+                    $r->session()->flash('sms1', 'Fail to register your account!');
+                    return redirect('/customer/register')->withInput();
+                }
+
+
+            }
+        }
+    }
 }

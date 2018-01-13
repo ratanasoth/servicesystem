@@ -11,16 +11,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-    // public function __construct()
-    // {
-    //     $this->middleware(function ($request, $next) {
-    //         if (Auth::user()==null)
-    //         {
-    //             return redirect("/login");
-    //         }
-    //         return $next($request);
-    //     });
-    // }
+
     // function to load profile view
     public  function index()
     {
@@ -40,17 +31,16 @@ class UserController extends Controller
     // load create user form
     public function create()
     {
-        if(!Right::check('User', 'i')){
-            return view('permissions.no');
-        }
+        $data['positions'] = DB::table('positions')->orderBy('name')->get();
         $data['roles'] = DB::table('roles')->get();
         return view('users.create', $data);
     }
     public function edit($id)
     {
-        if(!Right::check('User', 'u')){
-            return view('permissions.no');
-        }
+//        if(!Right::check('User', 'u')){
+//            return view('permissions.no');
+//        }
+        $data['positions'] = DB::table('positions')->orderBy('name')->get();
         $data['user'] = DB::table('users')->where('id', $id)->first();
         $data['roles'] = DB::table('roles')->get();
         if(Auth::user()->role_id>1)
@@ -62,9 +52,9 @@ class UserController extends Controller
     // delete a user by his/her id
     public function delete($id)
     {
-        if(!Right::check('User', 'd')){
-            return view('permissions.no');
-        }
+//        if(!Right::check('User', 'd')){
+//            return view('permissions.no');
+//        }
         DB::table('users')->where('id', $id)->delete();
         $page = @$_GET['page'];
         if ($page>0)
@@ -136,25 +126,19 @@ class UserController extends Controller
     // save user
     public function save(Request $r)
     {
-        $file_name = "default.png";
-        $sms = "";
-        $sms1 = "";
-        $lang = Auth::user()->language;
-        if($lang=='kh')
-        {
-            $sms = "អ្នកប្រើប្រាស់ថ្មី ត្រូវបានបង្កើតដោយជោគជ័យ។";
-            $sms1 = "មិនអាចបង្កើតអ្នកប្រើប្រាស់ថ្មីបានទេ, សូមត្រួតពិនិត្យម្តងទៀត!";
-        }
-        else{
-            $sms = "New user has been created successfully!";
-            $sms1 = "Fail to create new user. Please check your entry again!";
-        }
+        $sms = "New user has been created successfully!";
+        $sms1 = "Fail to create new user. Please check your entry again!";
+
         $data = array(
-            'name' => $r->name,
+            'first_name' => $r->first_name,
+            'last_name' => $r->last_name,
+            'username' => $r->name,
             'email' => $r->email,
+            'phone' => $r->phone,
+            'gender' => $r->gender,
             'password' => bcrypt($r->password),
-            'language' => $r->language,
-            'role_id' => $r->role
+            'role_id' => $r->role,
+            'position' => $r->position
         );
         $i = DB::table('users')->insertGetId($data);
         if($r->hasFile('photo'))
@@ -179,26 +163,16 @@ class UserController extends Controller
     // update user
     public function update(Request $r)
     {
-
-        $file_name = "";
-        $sms = "";
-        $sms1 = "";
-        $lang = Auth::user()->language;
-        if($lang=='kh')
-        {
-            $sms = "ពត៌មានអ្នកប្រើប្រាស់ ត្រូវបានផ្លាស់ប្តូរដោយជោគជ័យ។";
-            $sms1 = "មិនអាចធ្វើការផ្លាស់ពត៌មានបានទេ, អ្នកទំនងជាមិនបានផ្លាស់ប្តូរពត៌មានទេ។";
-        }
-        else{
-            $sms = "All changes have been saved successfully.";
-            $sms1 = "Fail to update user. Please check your entry again. It seems you don't make any change!";
-        }
-        $data = array();
+        $sms = "All changes have been saved successfully.";
         $data = array(
-            'name' => $r->name,
+            'first_name' => $r->first_name,
+            'last_name' => $r->last_name,
+            'username' => $r->name,
             'email' => $r->email,
-            'language' => $r->language,
-            'role_id' => $r->role
+            'phone' => $r->phone,
+            'gender' => $r->gender,
+            'role_id' => $r->role,
+            'position' => $r->position
         );
         if($r->photo)
         {
@@ -211,15 +185,7 @@ class UserController extends Controller
         $i = DB::table('users')->where('id', $r->id)->update($data);
         $r->session()->flash('sms', $sms);
         return redirect('/user/edit/'.$r->id);
-        // if ($i)
-        // {
-        //     $r->session()->flash('sms', $sms);
-        //     return redirect('/user/edit/'.$r->id);
-        // }
-        // else{
-        //     $r->session()->flash('sms1', $sms1);
-        //     return redirect('/user/edit/'.$r->id);
-        // }
+
     }
     // load reset password form
     public function reset_password()

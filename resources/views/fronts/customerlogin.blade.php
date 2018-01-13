@@ -22,6 +22,7 @@
                         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                         
                         <button class="btn btn-primary btn-xl js-scroll-trigger" type="submit">Sign in</button>
+                        <a href="{{url('/customer/register')}}" class="btn btn-success ">Register</a>
                     </form>
                     <a href="#" class="forgot-password">
                         Forgot the password?

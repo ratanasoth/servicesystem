@@ -34,14 +34,14 @@
                          @foreach($asset_outs as $at)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td><a href="{{url('/asset-out/detail/'.$at->id)}}">{{$at->name}}</a></td>
+                                <td><a href="{{url('/asset-out/checkin/'.$at->id)}}">{{$at->name}}</a></td>
                                 <td>{{$at->quantity}}</td>
                                 <td>{{$at->out_date}}</td>
                                 <td>{{$at->return_date}}</td>
                                 <td>{{$at->user_name}}</td>
                                 <td>{{$at->reason}}</td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$at->return_qty}}</td>
+                                <td>{{$at->due_qty}}</td>
                                 <td>{{$at->is_returned}}</td>
                                 <td>
                                     <a href="{{url('/asset-out/edit/'.$at->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp

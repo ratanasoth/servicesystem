@@ -29,6 +29,8 @@ Route::get('/front/customer', "FrontCustomerController@index");
 Route::post('/front/customer/login', "FrontController@dologin");
 Route::get('/customer/product', "FrontCustomerController@product");
 Route::get('/customer/product/detail/{id}', "FrontCustomerController@product_detail");
+Route::get('/customer/register', "FrontCustomerController@register");
+Route::post('/customer/register/save', "FrontCustomerController@do_register");
 // customer request
 Route::get('/customer/request', "CustomerRequestController@index");
 Route::get('/customer/request/create', "CustomerRequestController@create");
@@ -207,6 +209,7 @@ Route::get('/asset-out/delete/{id}', "AssetOutController@delete");
 Route::get('/asset-out/detail/{id}', "AssetOutController@detail");
 Route::post('/asset-out/save', "AssetOutController@save");
 Route::post('/asset-out/update', "AssetOutController@update");
+Route::post('/asset-out/savein', "AssetOutController@save_in");
 Route::get('/asset-out/checkin/{id}', "AssetOutController@checkin");
 // warehouse
 Route::get('/warehouse', "WarehouseController@index");
@@ -222,3 +225,11 @@ Route::get('/asset-type/edit/{id}', "AssetTypeController@edit");
 Route::get('/asset-type/delete/{id}', "AssetTypeController@delete");
 Route::post('/asset-type/save', "AssetTypeController@save");
 Route::post('/asset-type/update', "AssetTypeController@update");
+// feedback
+Route::get('/feedback', "FeedbackController@index");
+Route::get('/feedback/detail/{id}', "FeedbackController@detail");
+Route::get('/feedback/delete/{id}', "FeedbackController@delete");
+// request
+Route::get('/request', "RequestController@index");
+Route::get('/request/detail/{id}', "RequestController@detail");
+Route::get('/request/delete/{id}', "RequestController@delete");

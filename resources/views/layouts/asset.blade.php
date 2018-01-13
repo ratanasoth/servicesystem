@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-
+    <link href="{{asset('css/datepicker.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{{asset("chosen/chosen.css")}}">
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
@@ -74,22 +74,9 @@
                 <li class="nav-item"><strong>Asset</strong></li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/asset')}}" id="menu_asset">Asset List</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="product" id="menu_asset_in">Check In</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/asset-out')}}" id="menu_asset_out">Check Out</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="product" id="menu_asset_lost">Asset Lost</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="product" id="menu_asset_scrap">Asset Scrap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="product" id="menu_due_check_in">Due Check In</a>
                 </li>
                 <li class="nav-item"><strong>Settings</strong></li>
                 <li class="nav-item">

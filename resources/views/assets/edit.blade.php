@@ -42,7 +42,12 @@
 
                                     </div>
                                 </div>
-                                
+                                <div class="form-group row">
+                                    <label for="reference" class="control-label col-sm-3 lb"> Reference Code</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="{{$assets->reference_code}}" name="reference" id="reference">
+                                    </div>
+                                </div>
                               
                                 <div class="form-group row">
                                     <label for="type" class="control-label col-sm-3 lb">Asset Type<span class="text-danger">*</span></label>
@@ -67,6 +72,12 @@
                                             @endforeach
                                             
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="total" class="control-label col-sm-3 lb">Total Qty</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" value="{{$assets->total}}" name="total" id="total">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -99,11 +110,11 @@
 @section('js')
     <script src="{{asset("chosen/chosen.jquery.js")}}"></script>
     <script src="{{asset("chosen/chosen.proto.js")}}"></script>
+
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
-            $("#asset").addClass("current");
-            
+            $("#menu_asset").addClass("current");
         })
     </script>
 

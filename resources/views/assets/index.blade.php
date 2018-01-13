@@ -14,9 +14,11 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Reference Code</th>
                             <th>Type</th>
                             <th>Warehouse</th>
-                            <th>On Hand</th>
+                            <th>Balance Qty</th>
+                            <th>Total Qty</th>
                             <th>Description</th>
                             <th>Actions</th>
                         </tr>
@@ -32,9 +34,11 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{$asset->name}}</td>
+                                <td>{{$asset->reference_code}}</td>
                                 <td>{{$asset->type_name}}</td>
                                 <td>{{$asset->warehouse_name}}</td>
                                 <td>{{$asset->onhand}}</td>
+                                <td>{{$asset->total}}</td>
                                 <td>{{$asset->description}}</td>
                                 <td>
                                     <a href="{{url('/asset/edit/'.$asset->id)}}" title="Edit"><i class="fa fa-edit text-success"></i></a>&nbsp;&nbsp
@@ -58,7 +62,7 @@
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
-            $("#asset").addClass("current");
+            $("#menu_asset").addClass("current");
         })
     </script>
 @endsection
