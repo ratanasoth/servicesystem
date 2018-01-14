@@ -8,14 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Vdoo</title>
+    <title>Management | Vdoo</title>
     <!-- Styles -->
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-
+    <link href="{{asset('css/datepicker.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{{asset("chosen/chosen.css")}}">
+    <link rel="stylesheet" href="{{asset("chosen/chosen.css")}}">
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset("css/table.css")}}">
@@ -36,7 +36,7 @@
                 <a class="nav-link" href="{{url('/management')}}">Management <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/asset')}}">Asset</span></a>
+                <a class="nav-link" href="{{url('/asset')}}">Asset</a>
             </li>
              <li class="nav-item">
                 <a class="nav-link" href="{{url('/payment')}}">Payment</a>
@@ -103,14 +103,12 @@
                 </li>
                 <li class="nav-item"><strong>Feedback</strong></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="customer_feedback">Customer Feedback</a>
+                    <a class="nav-link" href="{{url('/feedback')}}" id="menu_feedback">Customer Feedback</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="technician_feedback">Technician Feedback</a>
+                    <a class="nav-link" href="{{url('/request')}}" id="menu_request">Customer Request</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="salesperson_feedback">Salesperson Feedback</a>
-                </li>
+
                 <li class="nav-item"><strong>Task</strong></li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/task')}}" id="task">Task</a>

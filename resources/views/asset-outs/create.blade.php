@@ -52,13 +52,13 @@
                                 <div class="form-group row">
                                     <label for="out_date" class="control-label col-sm-3 lb">Out Date</label>
                                     <div class="col-sm-8">
-                                        <input type="date" class="form-control" name="out_date" id="out_date">
+                                        <input type="date" class="form-control datepicker-icon" name="out_date" id="out_date">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="return_date" class="control-label col-sm-3 lb">Return Date</label>
                                     <div class="col-sm-8">
-                                        <input type="date" class="form-control" name="return_date" id="return_date">
+                                        <input type="date" class="form-control datepicker-icon" name="return_date" id="return_date">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -94,11 +94,18 @@
 @section('js')
     <script src="{{asset("chosen/chosen.jquery.js")}}"></script>
     <script src="{{asset("chosen/chosen.proto.js")}}"></script>
+    <script src="{{asset('datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
             $("#menu_asset_out").addClass("current");
-            
+            $("#out_date, #return_date").datepicker({
+                orientation: 'bottom',
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true,
+                toggleActive: true
+            });
         })
     </script>
 

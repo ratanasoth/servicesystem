@@ -43,7 +43,9 @@ class AssetController extends Controller
             "description" => $r->description,
             "type_id" => $r->type,
             "warehouse_id" => $r->warehouse,
-            "onhand" => $r->onhand
+            "onhand" => $r->onhand,
+            'reference_code' => $r->reference,
+            'total' => $r->total
         );
         $i = DB::table("assets")->insert($data);
         if($i)
@@ -74,7 +76,9 @@ class AssetController extends Controller
             "description" => $r->description,
             "type_id" => $r->type,
             "warehouse_id" => $r->warehouse,
-            "onhand" => $r->onhand
+            "onhand" => $r->onhand,
+             'reference_code' => $r->reference,
+             'total' => $r->total
          );
          $i = DB::table("assets")->where("id", $r->id)->update($data);
          if($i)

@@ -35,7 +35,25 @@
                                <div class="row">
                                    <div class="col">
                                        <div class="form-group row">
-                                           <label for="name" class="control-label col-sm-4 lb">Full Name <span class="text-danger">*</span></label>
+                                           <label for="first_name" class="control-label col-sm-4 lb">First Name <span class="text-danger">*</span></label>
+                                           <div class="col-sm-8">
+                                               <input type="text" id="first_name" name="first_name" class="form-control" required>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col">
+                                       <div class="form-group row">
+                                           <label for="last_name" class="control-label col-sm-4 lb">Last Name</label>
+                                           <div class="col-sm-8">
+                                               <input type="text" class="form-control" id="last_name" name="last_name">
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col">
+                                       <div class="form-group row">
+                                           <label for="name" class="control-label col-sm-4 lb">Username <span class="text-danger">*</span></label>
                                            <div class="col-sm-8">
                                                <input type="text" id="name" name="name" class="form-control" required>
                                            </div>
@@ -43,11 +61,11 @@
                                    </div>
                                    <div class="col">
                                        <div class="form-group row">
-                                           <label for="language" class="control-label col-sm-4 lb">Language <span class="text-danger">*</span></label>
+                                           <label for="gender" class="control-label col-sm-4 lb">Gender <span class="text-danger">*</span></label>
                                            <div class="col-sm-8">
-                                               <select name="language" id="language" class="form-control sl">
-                                                   <option value="kh">ខ្មែរ</option>
-                                                   <option value="en">English</option>
+                                               <select name="gender" id="gender" class="form-control sl">
+                                                   <option value="Male">Male</option>
+                                                   <option value="Female">Female</option>
                                                </select>
                                            </div>
                                        </div>
@@ -56,9 +74,9 @@
                                <div class="row">
                                    <div class="col">
                                        <div class="form-group row">
-                                           <label for="email" class="control-label col-sm-4 lb">Email <span class="text-danger">*</span></label>
+                                           <label for="email" class="control-label col-sm-4 lb">Email</label>
                                            <div class="col-sm-8">
-                                               <input type="email" required name="email" id="email" class="form-control">
+                                               <input type="email" name="email" id="email" class="form-control">
                                            </div>
                                        </div>
                                    </div>
@@ -69,6 +87,28 @@
                                                <select name="role" id="role" class="form-control sl">
                                                    @foreach($roles as $role)
                                                        <option value="{{$role->id}}">{{$role->name}}</option>
+                                                   @endforeach
+                                               </select>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col">
+                                       <div class="form-group row">
+                                           <label for="phone" class="control-label col-sm-4 lb">Phone</label>
+                                           <div class="col-sm-8">
+                                               <input type="text" name="phone" id="phone" class="form-control">
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col">
+                                       <div class="form-group row">
+                                           <label for="position" class="control-label col-sm-4 lb">Position </label>
+                                           <div class="col-sm-8">
+                                               <select name="position" id="position" class="form-control sl">
+                                                   @foreach($positions as $p)
+                                                       <option value="{{$p->name}}">{{$p->name}}</option>
                                                    @endforeach
                                                </select>
                                            </div>

@@ -34,12 +34,17 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label for="name" class="control-label col-sm-3 lb"> Name<span class="text-danger">*</span></label>
+                                    <label for="name" class="control-label col-sm-3 lb"> Name <span class="text-danger">*</span></label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" value="{{old('name')}}" name="name" id="name" required>
                                     </div>
                                 </div>
-                                
+                                <div class="form-group row">
+                                    <label for="reference" class="control-label col-sm-3 lb"> Reference Code</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" value="{{old('reference')}}" name="reference" id="reference">
+                                    </div>
+                                </div>
                               
                                 <div class="form-group row">
                                     <label for="type" class="control-label col-sm-3 lb">Asset Type<span class="text-danger">*</span></label>
@@ -64,6 +69,12 @@
                                             @endforeach
                                             
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="total" class="control-label col-sm-3 lb">Total Qty</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" value="0" name="total" id="total">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -99,8 +110,7 @@
     <script>
         $(document).ready(function () {
             $("#siderbar li a").removeClass("current");
-            $("#asset").addClass("current");
-            
+            $("#menu_asset").addClass("current");
         })
     </script>
 

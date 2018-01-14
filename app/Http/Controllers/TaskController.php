@@ -16,84 +16,89 @@ class TaskController extends Controller
     //this function is for show list of product
     public function index(Request $request)
     {
-    	$data['task_list'] = DB::table("tasks")
-    					->where("tasks.active",1)
-    					->orderBy("tasks.id","desc")
-    					->paginate(12);
-        return view("tasks.index",$data);
+    	$data['tasks'] = DB::table("tasks")
+    					->leftJoin('users', 'tasks.handler', 'users.id')
+                        ->where('tasks.active', 1)
+                        ->orderBy('tasks.id', 'desc')
+                        ->select('tasks.*', 'users.first_name', 'users.last_name')
+                        ->paginate(12);
+        return view("tasks.index", $data);
     }
 
     //this function is for create new product
-     public function create(Request $r)
+    public function create(Request $r)
     {
-        return view("tasks.create");
+        $data['employees'] = DB::table('users')->where('active', 1)->orderBy('first_name')->get();
+        $data['customers'] = DB::table('customers')->where('active', 1)->orderBy('first_name')->get();
+        $data['severities'] = DB::table('severities')->get();
+        return view("tasks.create", $data);
     }
 
     //This function is for insert data of one product
-    public function save(Request $request){
-
-        if($request->deadline==""){
-            $date = NULL;
-        }else{
-            $date = date("Y-m-d",strtotime($request->deadline));
-        }
-
+    public function save(Request $r)
+    {
     	$data = array(
-            "title" => $request->title,
-            "severity" => $request->severity,
-            "deadline" => $date,
-            "handler" => $request->handler,
-            "description" => $request->description
+            "title" => $r->title,
+            "severity" => $r->severity,
+            "deadline" => $r->deadline,
+            "handler" => $r->handler,
+            "description" => $r->description,
+            'customer_id' => $r->customer_id,
+            'progression' => $r->progression
         );
 
         $i = DB::table("tasks")->insert($data);
         if ($i)
         {
-            $request->session()->flash("sms", "New products has been created successfully!");
+            $r->session()->flash("sms", "New task has been created successfully!");
             return redirect("/task/create");
         }
         else{
-            $request->session()->flash("sms1", "Fail to create new product!");
-            return redirect("/task/create");
+            $r->session()->flash("sms1", "Fail to create new task!");
+            return redirect("/task/create")->withInput();
         }
     }
 
     // load detail product info
     public function detail($id)
     {
-        $data['task_list']= DB::table("tasks")
-    					->where("tasks.active",1)
-    					->where("tasks.id",$id)
-    					->first();
+        $data['task']= DB::table("tasks")
+            ->leftJoin('users', 'tasks.handler', 'users.id')
+            ->leftJoin('customers', 'tasks.customer_id', 'customers.id')
+            ->where('tasks.id', $id)
+            ->select('tasks.*', 'customers.first_name', 'customers.last_name',
+                'users.first_name as fname', 'users.last_name as lname')
+            ->first();
         return view("tasks.detail", $data);
     }
 
     //This function is for editting page of product
-    public function edit($id){
+    public function edit($id)
+    {
 
-    	$data['task_list'] = DB::table("tasks")
-    					->where("tasks.active",1)
-    					->where("tasks.id",$id)
+        $data['employees'] = DB::table('users')->where('active', 1)->orderBy('first_name')->get();
+        $data['customers'] = DB::table('customers')->where('active', 1)->orderBy('first_name')->get();
+        $data['severities'] = DB::table('severities')->get();
+    	$data['task'] = DB::table("tasks")
+    					->where("active", 1)
+    					->where("id", $id)
     					->first();
 
-    	return view("tasks.edit",$data);
+    	return view("tasks.edit", $data);
     }
 
     //This function is for doing update product
     public function update(Request $r)
     {
-       if($r->deadline==""){
-            $date = NULL;
-        }else{
-            $date = date("Y-m-d",strtotime($r->deadline));
-        }
 
         $data = array(
             "title" => $r->title,
             "severity" => $r->severity,
-            "deadline" => $date,
+            "deadline" => $r->deadline,
             "handler" => $r->handler,
-            "description" => $r->description
+            "description" => $r->description,
+            'customer_id' => $r->customer_id,
+            'progression' => $r->progression
         );
 
         $i = DB::table("tasks")->where("id", $r->id)->update($data);

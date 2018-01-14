@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Vdoo MFI System</title>
+    <title>Service System | Vdoo</title>
 
     <!-- Styles -->
     <!-- Bootstrap core CSS -->

@@ -48,7 +48,7 @@
                                     <div class="col-sm-8">
                                         <select name="out_by" id="out_by" class="form-control" disabled>
                                         @foreach($users as $user)
-                                            <option value="{{$user->id}}" {{$asset_out->out_by==$user->id?'selected':''}}>{{$user->name}}</option>
+                                            <option value="{{$user->id}}" {{$asset_out->out_by==$user->id?'selected':''}}>{{$user->username}}</option>
                                         @endforeach
                                         </select>
                                     </div>

@@ -103,10 +103,11 @@ $img = $images[$index];
             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                 {{csrf_field()}}
                 <p>
-                    <input type="email" id="email" name="email" value="{{old('email')}}" placeholder="E-Male Address" required autofocus>
+                    <input type="text" id="username" name="username" value="{{old('username')}}"
+                           placeholder="Username" required autofocus>
                 </p>
                 <p>
-                    <input type="password" placeholder="Your Password" id="password" name="password" required>
+                    <input type="password" placeholder="Password" id="password" name="password" required>
                 </p>
                 <p>
                     <button type="submit" class="btn-login">Login</button>
