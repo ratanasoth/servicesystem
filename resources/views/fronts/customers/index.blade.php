@@ -1,6 +1,7 @@
 @extends('layouts.customer')
 @section('content')
 
+<<<<<<< HEAD
 <script src="{{asset('js/jssor.slider.min.js')}}"></script>
 <script type="text/javascript">
 jssor_1_slider_init = function () {
@@ -206,10 +207,20 @@ jssor_1_slider_init = function () {
 
 <script>
     $(document).ready(function () {
+=======
+<h1>hi</h1>
+@endsection
+@section('js')
+<script>
+    $(document).ready(function(){
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
         $(".mn .nav-item").removeClass('active');
         $("#menu_home").addClass("active");
     });
 </script>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
 @endsection

@@ -14,12 +14,16 @@ class FrontCustomerController extends Controller
         {
             return redirect('/customerlogin');
         }
+<<<<<<< HEAD
 
         $data['categories'] = DB::table('categories')->where('active',1)->orderBy('name')->get();
         $data['slides'] = DB::table('slides')->get();
         $data['products'] = DB::table('products')->where('active',1)->orderBy('id','desc')->limit(8)->get();
         $data['news'] = DB::table('news')->where('active',1)->orderBy('id','desc')->limit(6)->get();
         return view('fronts.customers.index' , $data);
+=======
+        return view('fronts.customers.index');
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
     }
     public function profile(Request $r)
     {
@@ -76,7 +80,10 @@ class FrontCustomerController extends Controller
         if($r->q)
         {
             $data['q'] = $q;
+<<<<<<< HEAD
             $data['categories'] = DB::table('categories')->where('active',1)->orderBy('name')->get();
+=======
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
             $data['products'] = DB::table('products')->where('active',1)
                 ->where(function($query) use ($q){
                     $query->orWhere('name', 'like', "%{$q}%")
@@ -88,12 +95,16 @@ class FrontCustomerController extends Controller
         }
         else{
             $data['q'] = "";
+<<<<<<< HEAD
             $data['categories'] = DB::table('categories')->where('active',1)->orderBy('name')->get();
+=======
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
             $data['products'] = DB::table('products')->where('active',1)->orderBy('name')->paginate(22);
             return view('fronts.customers.product', $data);
         }
       
     }
+<<<<<<< HEAD
 
    
     public function product_category($id)
@@ -107,6 +118,8 @@ class FrontCustomerController extends Controller
       
     }
 
+=======
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
     public function product_detail($id)
     {
        

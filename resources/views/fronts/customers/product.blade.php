@@ -1,6 +1,7 @@
 @extends('layouts.customer')
 @section('content')
 <div class="row">
+<<<<<<< HEAD
     <div class="col-lg-3">
         <div class="list_category_div">
               
@@ -27,11 +28,26 @@
                        </div>
                        <div class="col-sm-6">
                             <br/>
+=======
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header text-bold">
+                   <div class="row">
+                       <div class="col-sm-4">
+                            <strong>Product List</strong>
+                  
+                       </div>
+                       <div class="col-sm-5">
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
                             <form action="{{url('/customer/product')}}" class="form-horizontal" method="get">
                                     <div class="input-group"  style="margin-top: -9px;margin-bottom:3px">
                                         <input type="text" class="form-control" placeholder="Search for..." name="q" value="{{$q}}">
                                         <span class="input-group-btn">
+<<<<<<< HEAD
                                             <button class="btn btn-bg" type="submit"><i class="fa fa-search"></i></button>
+=======
+                                            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
                                         </span>
                                     </div>
                             </form>
@@ -39,8 +55,12 @@
                    </div>
                
                 </div>
+<<<<<<< HEAD
                 <div class="">
                     <br/>
+=======
+                <div class="card-block">
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
                     <table class="tbl">
                         <thead>
                         <tr>
@@ -63,9 +83,15 @@
                                 <td>{{$i++}}</td>
                                 <td>{{$p->name}}</td>
                                 <td>{{$p->type}}</td>
+<<<<<<< HEAD
                                 <td>${{$p->price}}</td>
                                 <td>
                                     <a href="{{url('/customer/product/detail/'.$p->id)}}" class="btn btn-bg">View</a>
+=======
+                                <td>{{$p->price}}</td>
+                                <td>
+                                    <a href="{{url('/customer/product/detail/'.$p->id)}}" class="btn btn-success">View</a>
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
                                 </td>
                             </tr>
                         @endforeach
@@ -78,7 +104,10 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
 @endsection
 @section('js')
 <script>

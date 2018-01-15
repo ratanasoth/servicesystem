@@ -225,6 +225,7 @@ ul.pagination li a, ul.pagination li span{
 }
 .hide{
     display:none;
+<<<<<<< HEAD
 }
 
 /*list category front  */
@@ -332,4 +333,6 @@ ul.pagination li a, ul.pagination li span{
 .btn-bg, .btn-bg:hover {
     background: #bb162b;
     color: white;
+=======
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
 }

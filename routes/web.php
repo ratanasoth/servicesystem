@@ -28,7 +28,10 @@ Route::get('/customer/home', "FrontCustomerController@index");
 Route::get('/front/customer', "FrontCustomerController@index");
 Route::post('/front/customer/login', "FrontController@dologin");
 Route::get('/customer/product', "FrontCustomerController@product");
+<<<<<<< HEAD
 Route::get('/customer/product/category/{id}', "FrontCustomerController@product_category");
+=======
+>>>>>>> 46fbb6bf19d865f35befeb202f51462307c8d3b4
 Route::get('/customer/product/detail/{id}', "FrontCustomerController@product_detail");
 Route::get('/customer/register', "FrontCustomerController@register");
 Route::post('/customer/register/save', "FrontCustomerController@do_register");
